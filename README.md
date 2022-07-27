@@ -19,6 +19,12 @@ Run the migrations and seeders:
 To run the project:
 `php artisan serve`
 
+To run the project:
+`./vendor/bin/sail up`
+
+To go into the container:
+`./vendor/bin/sail bash`
+
 ## frontend
 Go to the frontend folder:
 `cd frontend`
