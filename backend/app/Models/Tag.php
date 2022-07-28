@@ -33,6 +33,6 @@ class Tag extends Model
 
     public function noteTags(): HasMany
     {
-        return $this->hasMany(NoteTag::class, 'note_id', 'id');
+        return $this->hasMany(NoteTag::class, 'tag_id', 'id');
     }
 }
