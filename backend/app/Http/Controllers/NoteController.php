@@ -14,7 +14,7 @@ class NoteController extends Controller
 
         return response()->json([
             'notes' => $notes,
-        ]);
+        ], 200);
     }
 
     public function store(Request $request, NoteService $noteService)
@@ -32,6 +32,6 @@ class NoteController extends Controller
 
         return response()->json([
             'note' => $note
-        ]);
+        ], 201);
     }
 }
