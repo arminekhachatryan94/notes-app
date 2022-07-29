@@ -18,10 +18,19 @@ class NoteService
 
     public function create(array $attributes, User $user): Note
     {
-        return Note::create([
+        $note = Note::create([
             'title' => $attributes['title'],
             'description' => $attributes['description'],
             'user_id' => $user->id,
         ]);
+
+        if(array_key_exists('tag_ids', $attributes)) {
+            $note->tags()->attach($attributes['tag_ids']);
+        }
+
+        $note->user;
+        $note->tags;
+
+        return $note;
     }
 }
