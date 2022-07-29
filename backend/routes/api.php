@@ -20,9 +20,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/notes', [NoteController::class, 'index'])->name('notes.index');
-Route::post('/notes', [NoteController::class, 'store'])->name('notes.store');
+Route::middleware(['cors'])->group(function () {
+    Route::get('/notes', [NoteController::class, 'index'])->name('notes.index');
+    Route::post('/notes', [NoteController::class, 'store'])->name('notes.store');
 
-Route::get('tags', [TagController::class, 'index']);
-Route::post('tags', [TagController::class, 'store']);
-Route::delete('tags/{tag}', [TagController::class, 'delete']);
+    Route::get('tags', [TagController::class, 'index']);
+    Route::post('tags', [TagController::class, 'store']);
+    Route::delete('tags/{tag}', [TagController::class, 'delete']);
+});
