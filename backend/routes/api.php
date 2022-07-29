@@ -20,5 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('notes', [NoteController::class, 'index']);
-Route::post('notes', [NoteController::class, 'store']);
+Route::get('/notes', [NoteController::class, 'index'])->name('notes.index');
+Route::post('/notes', [NoteController::class, 'store'])->name('notes.store');

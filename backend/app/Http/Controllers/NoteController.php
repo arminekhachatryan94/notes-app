@@ -22,6 +22,8 @@ class NoteController extends Controller
         $data = $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
+            'tag_ids' => 'array',
+            'tag_ids.*' => 'numeric|exists:tags,id',
         ]);
 
         $user = User::where('id', 1)->firstOrFail();
