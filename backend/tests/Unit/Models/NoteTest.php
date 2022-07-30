@@ -65,4 +65,25 @@ class NoteTest extends TestCase
         $this->assertContains($tag1->id, $noteTagIds);
         $this->assertContains($tag2->id, $noteTagIds);
     }
+
+    /**
+     * Test the tag name filter
+     */
+    public function test_tag_name_filter()
+    {
+        $tagIncluded = Tag::factory()->create(['name' => 'included']);
+        $tagExcluded = Tag::factory()->create(['name' => 'excluded']);
+
+        $noteIncluded = Note::factory()->create();
+        $noteExcluded = Note::factory()->create();
+
+        $noteIncluded->tags()->attach($tagIncluded->id);
+        $noteExcluded->tags()->attach($tagExcluded->id);
+
+        $result = Note::tagNameFilter('included')->get();
+        $resultIds = $result->pluck('id')->toArray();
+
+        $this->assertContains($noteIncluded->id, $resultIds);
+        $this->assertNotContains($noteExcluded->id, $resultIds);
+    }
 }

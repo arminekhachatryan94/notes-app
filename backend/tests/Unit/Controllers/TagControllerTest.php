@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\Controllers;
 
+use App\Models\Tag;
 use Tests\TestCase;
 
 class TagControllerTest extends TestCase
@@ -42,8 +43,9 @@ class TagControllerTest extends TestCase
      */
     public function test_delete_passes()
     {
-        $this->postJson(route('tags.delete', [
-            'name' => 'TagName',
+        $tag = Tag::factory()->create();
+        $this->deleteJson(route('tags.delete', [
+            'tag' => $tag->id,
         ]))->assertSuccessful();
     }
 
