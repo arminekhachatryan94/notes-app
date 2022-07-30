@@ -31,7 +31,6 @@ const AddTagButton = (props: Props) => {
       'name': tagName,
     })
       .then(response => {
-        console.log(response.data.tag);
         const responseTag = response.data.tag
         wrapAddTagToArray(responseTag);
         setTagName('');

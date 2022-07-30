@@ -70,7 +70,6 @@ const AddNoteButton = (props: Props) => {
       'tag_ids': tagIds,
     })
       .then(response => {
-        console.log(response.data.note);
         const responseNote = response.data.note
         wrapAddNoteToArray(responseNote);
         setOpen(false);

@@ -36,12 +36,13 @@ const NoteComponent = ({ note }: Props) => {
               component='div'
               sx={{
                 display: 'inline',
-                bgcolor: 'gray',
+                bgcolor: 'lightgray',
                 p: 0.5,
                 m: 0.5,
-                color: 'white',
+                color: 'black',
                 border: '1px solid primary',
                 fontSize: '12px',
+                fontFamily: 'Times New Roman", Times, serif',
               }}
               key={index}
               >

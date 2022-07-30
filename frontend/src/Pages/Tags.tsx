@@ -22,13 +22,17 @@ const Tags = () => {
     setTags(newTags);
   }
 
-  useEffect(() => {
+  const fetchTags = () => {
     axios.get('http://localhost:80/api/tags')
-      .then(response => {
-        setTags(response.data.tags);
-      }).catch(error => {
-        console.log(error);
-      });
+    .then(response => {
+      setTags(response.data.tags);
+    }).catch(error => {
+      console.log(error);
+    });
+  }
+
+  useEffect(() => {
+    fetchTags();
   }, []);
 
   return (
