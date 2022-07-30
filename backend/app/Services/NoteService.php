@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 
 class NoteService
 {
-    public function getAll(string $tagName = ''): Collection
+    public function getAll(?string $tagName = ''): Collection
     {
         return Note::with(['user', 'tags'])
             ->tagNameFilter($tagName)

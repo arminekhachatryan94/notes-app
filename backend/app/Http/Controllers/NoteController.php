@@ -8,9 +8,14 @@ use Illuminate\Http\Request;
 
 class NoteController extends Controller
 {
-    public function index(NoteService $noteService)
+    public function index(Request $request, NoteService $noteService)
     {
-        $notes = $noteService->getAll();
+        // return $request->name;
+        $request->validate([
+            'name' => 'string|nullable',
+        ]);
+
+        $notes = $noteService->getAll($request->name);
 
         return response()->json([
             'notes' => $notes,

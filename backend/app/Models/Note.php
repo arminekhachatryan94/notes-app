@@ -49,9 +49,9 @@ class Note extends Model
      * Scopes
      */
 
-    public function scopeTagNameFilter(Builder $query, string $tagName = '')
+    public function scopeTagNameFilter(Builder $query, ?string $tagName = '')
     {
-        if($tagName !== '') {
+        if($tagName && $tagName !== '') {
             $query->whereHas('tags', function($query) use ($tagName) {
                 $query->where('name', $tagName);
             });
