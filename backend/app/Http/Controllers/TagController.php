@@ -21,7 +21,7 @@ class TagController extends Controller
     public function store(Request $request, TagService $tagService)
     {
         $request->validate([
-            'name' => 'required|string',
+            'name' => 'required|string|unique:tags,name',
         ]);
 
         $tag = $tagService->create($request->name);
