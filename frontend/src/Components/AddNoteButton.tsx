@@ -67,7 +67,7 @@ const AddNoteButton = (props: Props) => {
     axios.post('http://localhost:80/api/notes', {
       'title': note.title,
       'description': note.description,
-      'tag_ids': 1,
+      'tag_ids': tagIds,
     })
       .then(response => {
         console.log(response.data.note);
@@ -169,7 +169,7 @@ const AddNoteButton = (props: Props) => {
                 </MenuItem>
               ))}
             </Select>
-            {errors.tag_ids && <FormHelperText error>{errors.tag_ids}</FormHelperText>}
+            {errors.tag_ids !== '' && <FormHelperText error>{errors.tag_ids}</FormHelperText>}
           </DialogContent>
           <DialogActions>
             <Button onClick={handleCancel}>Cancel</Button>
