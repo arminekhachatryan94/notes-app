@@ -9,6 +9,11 @@ import { Box } from '@mui/material';
 const Tags = () => {
   const [tags, setTags] = useState<Tag[]>([]);
 
+  const removeTagFromArray = (tag: Tag) => {
+    const newTags = tags.filter(tagEl => {return tagEl.id !== tag.id});
+    setTags(newTags);
+  }
+
   useEffect(() => {
     axios.get('http://localhost:80/api/tags')
       .then(response => {
@@ -24,7 +29,7 @@ const Tags = () => {
       <Grid container direction={"row"} sx={{ mt: 2 }} spacing={0.5}>
         {
           tags.map((tag, index) => (<React.Fragment key={index}>
-            <TagComponent tag={tag} />
+            <TagComponent tag={tag} removeTagFromArray={removeTagFromArray} />
           </React.Fragment>))
         }
       </Grid>
