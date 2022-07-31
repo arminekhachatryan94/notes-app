@@ -5,20 +5,20 @@ A basic notes app using Laravel, React (TypeScript), MySQL, and Docker
 ## Frontend
 Ensure `npm` is installed.
 
-Go to the frontend folder:
+Go into the frontend folder:
 `cd frontend`
 
 Install dependencies:
 `npm install`
 
-To run the project:
+Run the project:
 `npm start`
 
 
 ## Backend
 Ensure `composer` is installed.
 
-Go to the backend folder:
+Go into the backend folder:
 `cd backend`
 
 Install dependencies:
@@ -26,10 +26,10 @@ Install dependencies:
 
 Copy the `.env.example` file and name it `.env`. Then, add a database connection to it by providing a value for the `DB_` values.
 
-To serve up the project:
+Serve up the project:
 `vendor/bin/sail up`
 
-To go into the container:
+Go into the container:
 `vendor/bin/sail bash`
 
 ### Run the following commands in the container:
