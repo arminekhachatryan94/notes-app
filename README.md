@@ -1,6 +1,20 @@
 # Notes-app
 A basic notes app using Laravel, React (TypeScript), MySQL, and Docker
 
+
+## Frontend
+Ensure `npm` is installed.
+
+Go to the frontend folder:
+`cd frontend`
+
+Install dependencies:
+`npm install`
+
+To run the project:
+`npm start`
+
+
 ## Backend
 Ensure `composer` is installed.
 
@@ -37,14 +51,3 @@ To view the coverage report:
 Open the `backend/coverage/reports/index.html` file in the browser.
 ![alt text](/CodeCoverageReport.png)
 
-## Frontend
-Ensure `npm` is installed.
-
-Go to the frontend folder:
-`cd frontend`
-
-Install dependencies:
-`npm install`
-
-To run the project:
-`npm start`
